@@ -15,8 +15,6 @@ use Laravel\Fortify\Fortify;
 |
 */
 
-Route::get('/test', [PiglyController::class, 'test']);
-
 Route::group(['prefix' => '/register'], function () {
     Route::get('/step1', [PiglyController::class, 'registerStep1'])->name('register');;
     Route::get('/step2', [PiglyController::class, 'registerStep2']);
