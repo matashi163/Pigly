@@ -52,5 +52,5 @@ php artisan db:seed
 ![alt](erd.png)
 
 ## URL
-- 開発環境：http://localhost/weight/logs/
+- 開発環境：http://localhost/weight_logs/
 - phpMyAdmin:：http://localhost:8080/
