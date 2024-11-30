@@ -1,4 +1,4 @@
-# FashionablyLate(お問い合わせフォーム)
+# Pigly
 
 ## 環境構築
 **Dockerビルド**
