@@ -19,7 +19,7 @@ STEP2 体重データの入力
         <div class="form__group">
             <p class="form__lavel">現在の体重</p>
             <div class="form__input">
-                <input type="text" name="weight" value="{{old('weight')}}" class="form__input--content">
+                <input type="text" name="weight" value="{{old('weight')}}" placeholder="現在の体重を入力" class="form__input--content">
                 <span class="form__input--unit">kg</span>
             </div>
             @error('weight')
@@ -29,7 +29,7 @@ STEP2 体重データの入力
         <div class="form__group">
             <p class="form__lavel">目標の体重</p>
             <div class="form__input">
-                <input type="text" name="target_weight" value="{{old('target_weight')}}" class="form__input--content">
+                <input type="text" name="target_weight" value="{{old('target_weight')}}" placeholder="目標の体重を入力" class="form__input--content">
                 <span class="form__input--unit">kg</span>
             </div>
             @error('target_weight')

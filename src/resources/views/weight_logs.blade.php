@@ -95,7 +95,7 @@
                     <span class="modal__lavel--required">必須</span>
                 </div>
                 <div class="modal__input">
-                    <input type="date" name="date" value="{{old('date')}}" class="modal__input--date">
+                    <input type="date" name="date" value="{{old('date') ?: $today}}" class="modal__input--date">
                 </div>
                 @error('date')
                 <p class="modal__error">{{$errors->first('date')}}</p>
@@ -107,7 +107,7 @@
                     <span class="modal__lavel--required">必須</span>
                 </div>
                 <div class="modal__input">
-                    <input type="text" name="weight" value="{{old('weight')}}" class="modal__input--weight">
+                    <input type="text" name="weight" value="{{old('weight')}}" placeholder="50.0" class="modal__input--weight">
                     <span class="modal__input--unit">kg</span>
                 </div>
                 @error('weight')
@@ -120,7 +120,7 @@
                     <span class="modal__lavel--required">必須</span>
                 </div>
                 <div class="modal__input">
-                    <input type="text" name="calories" value="{{old('calories')}}" class="modal__input--calories">
+                    <input type="text" name="calories" value="{{old('calories')}}" placeholder="1200" class="modal__input--calories">
                     <span class="modal__input--unit">cal</span>
                 </div>
                 @error('calories')
@@ -133,7 +133,7 @@
                     <span class="modal__lavel--required">必須</span>
                 </div>
                 <div class="modal__input">
-                    <input type="time" name="exercise_time" value="{{old('exercise_time')}}" class="modal__input--exercise-time">
+                    <input type="time" name="exercise_time" value="{{old('exercise_time')}}" placeholder="00:00" class="modal__input--exercise-time">
                 </div>
                 @error('exercise_time')
                 <p class="modal__error">{{$errors->first('exercise_time')}}</p>
@@ -144,7 +144,7 @@
                     <span class="modal__lavel--title">運動内容</span>
                 </div>
                 <div class="modal__input">
-                    <textarea name="exercise_content" class="modal__input--exercise-content">{{old('exercise_content')}}</textarea>
+                    <textarea name="exercise_content" placeholder="運動内容を追加" class="modal__input--exercise-content">{{old('exercise_content')}}</textarea>
                 </div>
             </div>
             <div class="modal__button">

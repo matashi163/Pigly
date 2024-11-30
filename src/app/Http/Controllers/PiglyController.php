@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\SetWeightRequest;
 use App\Http\Requests\CreateRequest;
 use App\Http\Requests\UpdateRequest;
+use App\Http\Requests\TargetWeightRequest;
 use App\Models\User;
 use App\Models\WeightLog;
 use App\Models\WeightTarget;
@@ -51,6 +52,7 @@ class PiglyController extends Controller
     {
         $user = User::find(auth()->id());
         $searching = false;
+        $today = Carbon::today()->toDateString();
 
         $targetWeight = $user->weightTarget()->first()->target_weight;
         $weight = $user->weightLogs()->latest('date')->first()->weight;
@@ -63,7 +65,7 @@ class PiglyController extends Controller
             return $item;
         });
 
-        return view('weight_logs', compact('targetWeight', 'weight', 'toTargetWeight', 'weightLogs', 'searching'));
+        return view('weight_logs', compact('targetWeight', 'weight', 'toTargetWeight', 'weightLogs', 'searching', 'today'));
     }
 
     public function goalSetting()
@@ -71,7 +73,7 @@ class PiglyController extends Controller
         return view('goal_setting');
     }
 
-    public function updateTarget(Request $request)
+    public function updateTarget(TargetWeightRequest $request)
     {
         $targetWeight = [
             'target_weight' => $request->target_weight
@@ -86,6 +88,7 @@ class PiglyController extends Controller
         $dateFrom = $request->search_date_from;
         $dateTo = $request->search_date_to;
         $searching = true;
+        $today = Carbon::today()->toDateString();
 
         $targetWeight = $user->weightTarget()->first()->target_weight;
         $weight = $user->weightLogs()->latest('date')->first()->weight;
@@ -99,7 +102,7 @@ class PiglyController extends Controller
         });
         $count = $user->weightLogs()->whereBetween('date', [$dateFrom, $dateTo])->count();
 
-        return view('weight_logs', compact('targetWeight', 'weight', 'toTargetWeight', 'weightLogs', 'dateFrom', 'dateTo', 'searching', 'count'));
+        return view('weight_logs', compact('targetWeight', 'weight', 'toTargetWeight', 'weightLogs', 'dateFrom', 'dateTo', 'searching', 'count', 'today'));
     }
 
     public function create(CreateRequest $request)

@@ -10,9 +10,12 @@
     <form action="/weight_logs/goal_setting" method="post" class="goal-setting__form">
         @csrf
         <div class="goal-setting__input">
-            <input type="number" name="target_weight" value="target_weight" class="goal-setting__input--content">
+            <input type="text" name="target_weight" value="{{old('target_weight')}}" class="goal-setting__input--content">
             <span class="goal-setting__input--unit">kg</span>
         </div>
+        @error('target_weight')
+        <p class="goal-setting__error">{{$errors->first('target_weight')}}</p>
+        @enderror
         <div class="goal-setting__button">
             <a href="/weight_logs" class="goal-setting__button--back">戻る</a>
             <button class="goal-setting__button--update">更新</button>
