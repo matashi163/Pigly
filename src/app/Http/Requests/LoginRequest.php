@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Http\Requests;
+
 use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest;
 use Illuminate\Validation\ValidationException;
 use App\Models\User;
